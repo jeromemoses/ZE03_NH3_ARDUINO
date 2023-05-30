@@ -11,7 +11,7 @@ byte NH3_read[] = {0xFF, 0x01, 0x86, 0x00, 0x00, 0x00, 0x00, 0x00, 0x79}; //comm
 byte NH3_received_bytes[9]; //Array to store sensor response
 
 float read_NH3(float *gas_con); //function to read o2 concentration 
-float ETO; //variable to store O2 value
+float NH3; //variable to store O2 value
 
 void setup() {
   Serial.begin(ESP_baud_rate); //Initialise serial monitor from ESP32
@@ -49,9 +49,9 @@ void loop() {
 
   delay(1840);
   
-  read_NH3(&ETO); //passing O2 variable address to write the o2 gas concentration value in it 
+  read_NH3(&NH3); //passing O2 variable address to write the o2 gas concentration value in it 
 
-  Serial.printf("NH3 : %.2f \n",ETO); //prints O2 concentration in a serial monitor
+  Serial.printf("NH3 : %.2f \n",NH3); //prints O2 concentration in a serial monitor
 
   /*//code is just to print loading dots
   for(int i = 0;i<=10;i++)
